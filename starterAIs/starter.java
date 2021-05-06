@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 class Cell {
     int index;
-    int richess;
+    int richness;
     int[] neighbours;
 
-    public Cell(int index, int richess, int[] neighbours) {
+    public Cell(int index, int richness, int[] neighbours) {
         this.index = index;
-        this.richess = richess;
+        this.richness = richness;
         this.neighbours = neighbours;
     }
 }
@@ -37,14 +37,14 @@ class Action {
     static Action parse(String action) {
         String[] parts = action.split(" ");
         switch (parts[0]) {
-        case WAIT:
-            return new Action(WAIT);
-        case SEED:
-            return new Action(SEED, Integer.valueOf(parts[1]), Integer.valueOf(parts[2]));
-        case GROW:
-        case COMPLETE:
-        default:
-            return new Action(parts[0], Integer.valueOf(parts[1]));
+            case WAIT:
+                return new Action(WAIT);
+            case SEED:
+                return new Action(SEED, Integer.valueOf(parts[1]), Integer.valueOf(parts[2]));
+            case GROW:
+            case COMPLETE:
+            default:
+                return new Action(parts[0], Integer.valueOf(parts[1]));
         }
     }
 
